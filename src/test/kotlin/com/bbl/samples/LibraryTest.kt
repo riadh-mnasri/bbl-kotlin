@@ -18,4 +18,16 @@ class LibraryTest {
         Assertions.assertThat(foundBook).contains(kotlinBook)
 
     }
+
+    @Test
+    fun should_rate_5_stars_for_programming_kotlin_book() {
+        // Given
+        val kotlinBook = Book("Programming Kotlin", "isbntest1")
+
+        // When
+        val kotlinBookRate = kotlinBook.rate(5)
+
+        // Then
+        Assertions.assertThat(kotlinBookRate).isEqualTo("★★★★★")
+    }
 }
