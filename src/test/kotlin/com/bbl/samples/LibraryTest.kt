@@ -8,6 +8,9 @@ class LibraryTest {
     @Test
     fun should_find_kotlin_book() {
         // Given
+        // How to instantiate classes
+        // val keyword
+        // No semicolon
         val kotlinBook = Book("Programming Kotlin", "isbntest1")
         val library = Library(listOf(kotlinBook))
 
@@ -29,5 +32,32 @@ class LibraryTest {
 
         // Then
         Assertions.assertThat(kotlinBookRate).isEqualTo("★★★★★")
+    }
+
+    @Test
+    fun should_be_able_to_check_book_publish_year() {
+        // Given
+        val kotlinBook = Book("Programming Kotlin", "isbntest1", 2018)
+
+        // When
+        // Expression vs instructions
+        val newOrOldBook = if(kotlinBook.year > 2017) "new" else "old"
+
+        // Then
+        Assertions.assertThat(newOrOldBook).isEqualTo("new")
+    }
+
+    @Test
+    fun should_be_able_to_classify_my_books() {
+        // Given
+        // Pattern matching without argument
+        val kotlinBook = Book("Programming Kotlin", "isbntest1", 2018)
+
+        // When
+        val bookSubject = kotlinBook.findBookSubject()
+
+        // Then
+        Assertions.assertThat(bookSubject).isEqualTo("Software engineering")
+
     }
 }
