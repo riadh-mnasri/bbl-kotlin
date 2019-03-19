@@ -9,7 +9,7 @@ class LibraryTest {
     fun should_find_kotlin_book() {
         // Given
         // How to instantiate classes
-        // val keyword
+        // val vs var, data classes
         // No semicolon
         val kotlinBook = Book("Programming Kotlin", "isbntest1")
         val library = Library(listOf(kotlinBook))
@@ -18,7 +18,7 @@ class LibraryTest {
         val foundBook = library.findBookByIsbn(kotlinBook.isbn)
 
         // Then
-        Assertions.assertThat(foundBook).contains(kotlinBook)
+        Assertions.assertThat(foundBook).isEqualTo(kotlinBook)
 
     }
 
@@ -58,6 +58,23 @@ class LibraryTest {
 
         // Then
         Assertions.assertThat(bookSubject).isEqualTo("Software engineering")
+
+    }
+
+    @Test
+    fun should_not_retrieve_a_book_when_isbn_is_not_correct() {
+        // Given
+        //var isbn = null
+        val isbn = "test"
+        val kotlinBook = Book("Programming Kotlin", "isbntest1", 2018)
+
+        // When
+        // Null Safety
+        //val book = Library().findBookByIsbn(null)
+        val book = Library(listOf(kotlinBook)).findBookByIsbn(isbn)
+
+        // Then
+        Assertions.assertThat(book?.name).isNull()
 
     }
 }
