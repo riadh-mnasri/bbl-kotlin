@@ -97,7 +97,7 @@ class LibraryTest {
     }
 
     @Test
-    fun should_make_call_safe_call_with_elvis_operator() {
+    fun should_make_safe_call_with_elvis_operator() {
         // Given
         val isbn = "GTFFFGT"
         val books = listOf(Book("Programming Kotlin", "isbntest1", 2018))
@@ -107,6 +107,21 @@ class LibraryTest {
 
         // Then
         Assertions.assertThat(foundBook.name).isEqualTo("Design Patterns")
+
+    }
+
+    @Test
+    fun should_receive_not_found_book_when_it_is_absent_from_library() {
+        // Given
+        val books = listOf(Book("Programming Kotlin", "isbntest1", 2018))
+
+        // When
+        val library = Library(books)
+        val result = library.findBookByName("Domain Driven Design")
+        val isAvailable = library.isBookAvailable(result)
+
+        // Then
+        Assertions.assertThat(isAvailable).isFalse()
 
     }
 }
