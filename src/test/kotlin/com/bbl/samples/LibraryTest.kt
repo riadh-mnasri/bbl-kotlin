@@ -1,6 +1,7 @@
 package com.bbl.samples
 
 import org.assertj.core.api.Assertions
+import org.assertj.core.api.SoftAssertions
 import org.junit.Test
 
 class LibraryTest {
@@ -74,7 +75,38 @@ class LibraryTest {
         val book = Library(listOf(kotlinBook)).findBookByIsbn(isbn)
 
         // Then
+        // Safe call
         Assertions.assertThat(book?.name).isNull()
+
+    }
+
+    @Test
+    fun shoud_make_a_safe_call_to_books_list_with_nulls() {
+        // Given
+        val kotlinBook = Book("Programming Kotlin", "isbntest1", 2018)
+        val booksListWhenNulls : List<Book?> = listOf(kotlinBook, null)
+
+        // Then
+        val softAssertions = SoftAssertions()
+        for(book in booksListWhenNulls){
+            book?.let {
+                softAssertions.assertThat(book.name).isNotNull
+            }
+        }
+        softAssertions.assertAll()
+    }
+
+    @Test
+    fun should_make_call_safe_call_with_elvis_operator() {
+        // Given
+        val isbn = "GTFFFGT"
+        val books = listOf(Book("Programming Kotlin", "isbntest1", 2018))
+
+        // When
+        val foundBook = Library(books).findBookByIsbn(isbn)?: Book("Design Patterns", "ggfg", 2000)
+
+        // Then
+        Assertions.assertThat(foundBook.name).isEqualTo("Design Patterns")
 
     }
 }
