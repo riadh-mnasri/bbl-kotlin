@@ -124,4 +124,15 @@ class LibraryTest {
         Assertions.assertThat(isAvailable).isFalse()
 
     }
+
+    @Test
+    fun should_be_able_to_add_behaviour_to_external_dependency() {
+
+        // Given
+        val kotlinBook = Book("Programming Kotlin", "isbntest1", 2018)
+
+
+        // Then
+        Assertions.assertThat(kotlinBook.isRecent(2017)).isTrue()
+    }
 }
