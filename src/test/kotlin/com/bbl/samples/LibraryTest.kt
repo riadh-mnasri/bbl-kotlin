@@ -24,6 +24,15 @@ class LibraryTest {
     }
 
     @Test
+    fun should_access_book_availability() {
+        // Given
+        val kotlinBook = BookV2("Programming Kotlin", "isbntest1")
+
+        // Then
+        Assertions.assertThat(kotlinBook.isAvailable).isTrue()
+    }
+
+    @Test
     fun should_rate_5_stars_for_programming_kotlin_book() {
         // Given
         val kotlinBook = Book("Programming Kotlin", "isbntest1")
