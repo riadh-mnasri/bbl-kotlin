@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.bbl.samples</groupId>
-    <artifactId>kotlin-quickstart-sample</artifactId>
+    <artifactId>bbl-kotlin</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>kotlin-quickstart-sample</name>
+    <name>BBL Kotlin</name>
     <description>BBL - Kotlin sample project for demo usage</description>
 
     <parent>
