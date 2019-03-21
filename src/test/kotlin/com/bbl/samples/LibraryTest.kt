@@ -1,7 +1,5 @@
 package com.bbl.samples
 
-import org.assertj.core.api.Assertions
-import org.assertj.core.api.SoftAssertions
 import org.junit.Test
 
 class LibraryTest {
@@ -66,6 +64,6 @@ class LibraryTest {
     @Test
     fun should_be_able_to_add_behaviour_to_external_dependency() {
         // Extension functions
-        
+
     }
 }
