@@ -1,29 +1,11 @@
 package com.bbl.samples
 
-data class Book(val name: String, val isbn: String, val publishYear: Int) {
-    fun computeState(): String {
-        return if (publishYear >= 2018) "new" else "old"
+data class Book(val name: String, val isbn: String, val price: Int = -1){
+    fun isExpensive(): String {
+        return if(price> 40) "expensive" else "good to buy"
     }
 
-    fun rate(note: Int): String {
-        return when (note) {
-            0 -> ""
-            1 -> "★"
-            2 -> "★★"
-            3 -> "★★★"
-            4 -> "★★★★"
-            5 -> "★★★★★"
-            else -> "Invalid note"
-        }
+    operator fun plus(book:Book): Book{
+        return Book(name + book.name, isbn + book.isbn, price+ book.price)
     }
-
-    fun findBookSubject(): String {
-
-        return when {
-            name.contains("programming", true) -> "Software development"
-            name.contains("miroservices", true) -> "Software architecture"
-            else -> "Unknown book"
-        }
-    }
-
 }
