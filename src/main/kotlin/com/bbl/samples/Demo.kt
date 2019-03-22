@@ -15,11 +15,9 @@ fun main(){
    val bookToRead = library.findBookByIsbn("TOTO") ?: Book("ISBN3","Domain Driver Design")
     //println("found book >> $bookToRead")
     val kotlinBookStarsNumber = bookKotlin.rate(5)
-    println("kotlinBookStarsNumber >> $kotlinBookStarsNumber")
-
-
-
-
-
+    //println("kotlinBookStarsNumber >> $kotlinBookStarsNumber")
+    val booksList = bookKotlin+bookScala
+    println("My Books list ::  $booksList")
+    
 }
 

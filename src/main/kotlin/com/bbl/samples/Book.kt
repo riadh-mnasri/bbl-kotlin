@@ -11,4 +11,8 @@ data class Book(val isbn: String, val name: String, val price: Int = -1) {
             is BookResult.BookNotFound -> false
         }
     }
+
+    operator fun plus(bookToAdd: Book):Book{
+        return Book(isbn + bookToAdd.isbn, name + "&"+ bookToAdd.name, price+bookToAdd.price)
+    }
 }
