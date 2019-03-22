@@ -13,7 +13,8 @@ fun main(){
     //println("Book price eval :: $bookKotlin.name $bookPriceEval")
    val foundBook = library.findBookByIsbn("ISBNTEST1")
    val bookToRead = library.findBookByIsbn("TOTO") ?: Book("ISBN3","Domain Driver Design")
-    println("found book >> $bookToRead")
+    //println("found book >> $bookToRead")
+
 
 
 
