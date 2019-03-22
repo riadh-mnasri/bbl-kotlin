@@ -6,7 +6,9 @@ fun main(){
    val library = Library(listOf(bookKotlin))
     // Null Safety
    val foundBook = library.findBookByIsbn("ISBNTEST1")
-    println("result >> : ${foundBook!!.name}")
+   val isBookAvailable = bookKotlin.isBookAvailable
+    println("isBookAvailable :: $isBookAvailable")
+
 
 }
 
