@@ -18,6 +18,6 @@ fun main(){
     //println("kotlinBookStarsNumber >> $kotlinBookStarsNumber")
     val booksList = bookKotlin+bookScala
     println("My Books list ::  $booksList")
-    
+
 }
 
