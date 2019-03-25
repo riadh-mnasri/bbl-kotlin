@@ -1,18 +1,17 @@
 package com.bbl.samples
 
-data class Book(val isbn: String, val name: String, val price: Int = -1) {
-    fun isExpensive(): String {
-        return if (price > 40) "Expensive" else "Good to buy"
+import kotlin.random.Random
+
+data class Book(val isbn: String, val name: String, val price: Int=-1){
+    val isAvailable : Boolean
+    get() = Random.nextBoolean()
+
+    fun priceState(): String {
+        return if (price > 40) "Expensive" else if (price < 40) "Good to Buy" else "Bad price"
     }
 
-    fun isBookAvailable(bookResult: BookResult): Boolean {
-        return when (bookResult) {
-            is BookResult.BookFound -> true
-            is BookResult.BookNotFound -> false
-        }
-    }
 
-    operator fun plus(bookToAdd: Book):Book{
-        return Book(isbn + bookToAdd.isbn, name + "&"+ bookToAdd.name, price+bookToAdd.price)
+     infix fun addedTo(bookToAdd: Book): Book{
+        return Book(bookToAdd.isbn + isbn, bookToAdd.name + "&"+ name, bookToAdd.price + price)
     }
 }

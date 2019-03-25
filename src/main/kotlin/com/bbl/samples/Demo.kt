@@ -1,23 +1,20 @@
 package com.bbl.samples
 
-fun main(){
-    // Variable declaration, inference type, instanciation classe
-   val bookKotlin = Book("ISBNTEST1", "Programming Kotlin", 30)
-   val bookScala = Book("ISBNTEST2", "Programming Scala", 45)
-   val library = Library(listOf(bookKotlin))
-    // Null Safety
-   // Properties
-   //val isBookAvailable = bookKotlin.isBookAvailable
-   //println("isBookAvailable :: $isBookAvailable"
-    val bookPriceEval = bookKotlin.isExpensive()
-    //println("Book price eval :: $bookKotlin.name $bookPriceEval")
-   val foundBook = library.findBookByIsbn("ISBNTEST1")
-   val bookToRead = library.findBookByIsbn("TOTO") ?: Book("ISBN3","Domain Driver Design")
-    //println("found book >> $bookToRead")
-    val kotlinBookStarsNumber = bookKotlin.rate(5)
-    //println("kotlinBookStarsNumber >> $kotlinBookStarsNumber")
-    val booksList = bookKotlin+bookScala
-    println("My Books list ::  $booksList")
+fun main() {
+    val kotlinBook = Book("ISBNTEST1", "Programming Kotlin", 35)
+    val dddBook = Book("ISBNTEST2", "Domain Driven Design", 40)
+    val scalaBook = Book("ISBNTEST3", "Programming Scala", 45)
+    println("my book : $kotlinBook")
+    val library = Library(listOf(kotlinBook))
+    val foundBook : BookResult = library.findBookByIsbn("ISBNTEST1")
+    println(when(foundBook){
+        is BookResult.BookFound -> "Cool"
+        is BookResult.BookNotFound -> ":-("
+    })
+    //println("foundbOok :: ${foundBook!!.name}")
+    //println("My Book is ${foundBook.name}")
+    //println("My book rate :: ${kotlinBook.rate(5)} ")
+    val myBooks = kotlinBook addedTo scalaBook
+    println("My Book list :: $myBooks")
 
 }
-
