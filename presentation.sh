@@ -24,7 +24,7 @@
     read
     echo -e -n "     \033[3m- Easy to learn"
     read
-    echo -e -n "     \033[3m- Few new concepts has been added"
+    echo -e -n "     \033[3m- Few new concepts have been added"
     read
     echo -e -n "     \033[3m- Focused on best practises"
     read
@@ -48,7 +48,7 @@
     echo -e -n "     - Etc ..."
     read
 
-    echo -e -n "\033[2m${CHECK_MARK} 3. Full Interoperability ith Java"
+    echo -e -n "\033[2m${CHECK_MARK} 3. Full Interoperability with Java"
     read
 
     echo -e -n "\033[1m
@@ -69,7 +69,7 @@
     read
     echo -e -n "${CHECK_MARK} 5. Statements vs expressions"
     read
-    echo -e -n "${CHECK_MARK} 6. Null Safety (Elvis operator"
+    echo -e -n "${CHECK_MARK} 6. Null Safety (Elvis operator)"
     read
     echo -e -n "${CHECK_MARK} 7. Pattern Matching with and without parameter"
     read
@@ -89,7 +89,7 @@
     read
     echo -e -n "${CHECK_MARK} 15. Standard extension functions (let, apply, run, also, takeIf, takeUnless)"
     read
-    echo -e -n "${CHECK_MARK} 16. Exception Handling"
+    echo -e -n "${CHECK_MARK} 16. Exception Handling - If we have time"
     read
 
     clear
