@@ -1,6 +1,7 @@
 package com.bbl.samples
 
 sealed class BookResult {
-    class BookFound(book: Book): BookResult()
-    class BookNotFound(isbn: String): BookResult()
+    class BookFound(val book: MyBook): BookResult()
+    class BookNotFound(val isbn: String): BookResult()
+
 }
